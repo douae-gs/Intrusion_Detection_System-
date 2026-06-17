@@ -1,0 +1,10 @@
+{
+    "titre": "Alerte Système Statique : Détection de Mirai",
+    "gravite": "Critique",
+    "description": "Le modèle hybride (GRU+LSTM) a intercepté un comportement anormal correspondant à l'empreinte réseau de la famille d'attaque Mirai avec un niveau de confiance de 99.4%.",
+    "recommandations": [
+        "Isoler immédiatement l'équipement IoT cible ou le segment réseau affecté.",
+        "Inspecter la capture PCAP récente à l'aide d'outils d'analyse comme Wireshark ou tcpdump.",
+        "Appliquer une règle d'urgence (Drop/Block) sur le pare-feu pour bloquer la source suspecte."
+    ]
+}
