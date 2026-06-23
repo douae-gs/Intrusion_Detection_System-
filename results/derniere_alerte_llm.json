@@ -1,10 +1,10 @@
 {
-    "titre": "Alerte Système Statique : Détection de Mirai",
-    "gravite": "Critique",
-    "description": "Le modèle hybride (GRU+LSTM) a intercepté un comportement anormal correspondant à l'empreinte réseau de la famille d'attaque Mirai avec un niveau de confiance de 99.4%.",
+    "titre": "Attaque Mirai détectée",
+    "gravite": "Élevé",
+    "description": "Une attaque de type Mirai a été détectée par le système IDS, avec une confiance de 99,4%. L'attaque provient de l'adresse IP 192.168.1.45 et cible l'adresse IP 212.85.10.4 sur le port 23 en utilisant le protocole TCP.",
     "recommandations": [
-        "Isoler immédiatement l'équipement IoT cible ou le segment réseau affecté.",
-        "Inspecter la capture PCAP récente à l'aide d'outils d'analyse comme Wireshark ou tcpdump.",
-        "Appliquer une règle d'urgence (Drop/Block) sur le pare-feu pour bloquer la source suspecte."
+        "Bloquer immédiatement l'adresse IP source 192.168.1.45 pour empêcher toute autre activité malveillante",
+        "Vérifier les dispositifs IoT sur le réseau pour détecter toute infection par le malware Mirai",
+        "Mettre à jour les mots de passe et les paramètres de sécurité des dispositifs IoT pour prévenir de futures attaques"
     ]
 }
