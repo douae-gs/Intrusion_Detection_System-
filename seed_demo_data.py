@@ -115,10 +115,6 @@ def generer_live_status():
 
 
 def generer_training_history():
-    """Reprend les VRAIES métriques finales issues de Training_hybride.ipynb
-    après suppression de la classe Injection (6 classes au lieu de 7) :
-    accuracy 88.65%, loss 0.2590 après 50 epochs. Valeurs epoch par epoch
-    recopiées directement depuis la sortie du notebook fourni."""
     epochs_loss_acc = [
         (1, 0.4822, 77.59), (2, 0.4124, 80.26), (3, 0.3922, 81.35),
         (4, 0.3819, 81.86), (5, 0.3750, 82.27), (6, 0.3687, 82.63),
@@ -139,24 +135,28 @@ def generer_training_history():
         (49, 0.2508, 89.26), (50, 0.2590, 88.65),
     ]
 
+    # Précision par famille — valeurs réelles issues de Training_hybride.ipynb
+    # (précision du classification_report, modèle final 6 classes).
+    # Source : graphique "Précision par Famille d'Attaque (Modèle Hybride)".
     precision_par_famille = {
-        "BenignTraffic": 83.9,
-        "DDoS": 92.5,
-        "DoS": 99.8,
-        "Mirai": 85.4,
-        "Recon": 87.4,
-        "Spoofing": 72.8,
+        "BenignTraffic": 82.0,
+        "DDoS": 97.3,
+        "DoS": 93.9,
+        "Mirai": 99.9,
+        "Recon": 80.0,
+        "Spoofing": 85.1,
     }
 
+  
     matrice_confusion = {
         "classes": ["BenignTraffic", "DDoS", "DoS", "Mirai", "Recon", "Spoofing"],
         "valeurs": [
-            [84.6, 0.0, 0.0, 0.0, 5.0, 5.0],
-            [0.0, 93.3, 6.6, 0.1, 0.0, 0.0],
-            [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-            [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-            [8.1, 0.0, 0.0, 0.0, 68.3, 5.1],
-            [9.6, 0.0, 0.0, 0.0, 6.0, 72.8],
+            [85.4, 0.0,  0.0,  0.0,   8.7,  5.9],   # BenignTraffic
+            [0.0,  93.6, 6.3,  0.0,   0.0,  0.0],   # DDoS
+            [0.0,  2.6,  97.3, 0.0,   0.0,  0.0],   # DoS
+            [0.0,  0.0,  0.0,  100.0, 0.0,  0.0],   # Mirai
+            [8.7,  0.0,  0.0,  0.0,   83.7, 7.6],   # Recon
+            [10.1, 0.0,  0.0,  0.0,   12.2, 77.6],  # Spoofing
         ],
     }
 
@@ -168,7 +168,7 @@ def generer_training_history():
         "nb_epochs": 50,
         "precision_par_famille": precision_par_famille,
         "matrice_confusion": matrice_confusion,
-        "auteurs": [ "Nassira Amhaoui","Douae Gasmi"],
+        "auteurs": ["Douae Gasmi", "Nassira Amhaoui"],
     }
     with open(TRAINING_HISTORY_PATH, "w", encoding="utf-8") as f:
         json.dump(history, f, indent=2, ensure_ascii=False)
