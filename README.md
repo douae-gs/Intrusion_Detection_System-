@@ -83,14 +83,8 @@ sudo python ids_temps_reel.py
 
 ---
 
-## Accès à la plateforme
 
-| Champ | Valeur |
-|---|---|
-| Identifiant | `admin` |
-| Mot de passe | `admin123` |
 
----
 
 ## Performances du modèle
 
